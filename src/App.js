@@ -1,24 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import AsyncContainer from './redux_container/AsyncContainer';
+import NumberContainer from './redux_container/NumberContainer';
+import TextContainer from './redux_container/TextContainer';
+import {createBrowserHistory} from 'history'
+//react-router에 있는기능임 그니까 package.json에 안보이지 삽질니은
+import Main from './components/Main';
+import Detail from './components/Detail';
+import { Route,Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Main />} />
+      <Route path="/:id" element={<Detail />} />
+    </Routes>
   );
 }
 
